@@ -38,6 +38,10 @@ The data collected by the app is stored on a SharePoint list, which is used as a
 
 The report is designed to be interactive, allowing users to filter the data by department, rating, and sentiment.
 
+<!-- ![Voice of the Managers Report](https://user-images.githubusercontent.com/108296666/236662185-f86b292e-19c0-4c2f-848d-9cdeed977c27.jpg) -->
+
+<img src="https://user-images.githubusercontent.com/108296666/236662185-f86b292e-19c0-4c2f-848d-9cdeed977c27.jpg" alt="Voice of the Managers Report" style="display: block; margin-left: auto; margin-right: auto;" width="40%">
+
 ## Results
 
 The Staff Appraisal App has improved the staff of the month award process by **automating the nomination process and providing a more efficient way to collect data on employee performance.** The Power BI report has provided valuable insights into the data collected, answering the questions posed by the project.
