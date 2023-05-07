@@ -32,8 +32,11 @@ The objectives of this project are:
 
 The Staff Appraisal App was developed using Microsoft PowerApps. The app was designed to be user-friendly, with a simple interface that allows managers to quickly nominate an employee. The app collects data on the employee, the manager's rating, the manager's justification for nominating the employee, and the employee/manager's department. The app also sends automated emails to managers reminding them to nominate an employee if they haven't done so by the end of the month.
 
-The data collected by the app is stored on a SharePoint list, which is used as a data source for the Power BI report. The report uses NLP techniques, specifically `Keyword Extraction` and `Sentiment Analysis`, to provide insights into the data collected. The report answers the following questions:
+The data collected by the app is stored on a SharePoint list, which is used as a data source for the Power BI report. The report uses NLP techniques, specifically `Keyword Extraction` and `Sentiment Analysis`, to provide insights into the data collected. 
 
+<img width="611" alt="app data lineage" src="https://user-images.githubusercontent.com/108296666/236670953-7692bd42-9cc6-488c-a352-eba1e4ea5db7.png">
+
+The report answers the following questions:
 - What are managers saying?
 - What are the manager's most dominant sentiments about their employees?
 - Is there any relationship between staff ratings and the justification for their nominations?
