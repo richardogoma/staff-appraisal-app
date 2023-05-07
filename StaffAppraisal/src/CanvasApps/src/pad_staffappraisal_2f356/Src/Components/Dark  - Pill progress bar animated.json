@@ -1,0 +1,73 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": false,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "Dark  - Pill progress bar animated",
+    "TemplateGuid": "87d61628c62744a1b8c4b75fa199f76e"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "Value",
+      "Hidden": false,
+      "Name": "Value",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "MaxValue",
+      "Hidden": false,
+      "Name": "MaxValue",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "LinealGradient1",
+      "Hidden": false,
+      "Name": "LinealGradient1",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "LinealGradient2",
+      "Hidden": false,
+      "Name": "LinealGradient2",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "LabelSize",
+      "Hidden": false,
+      "Name": "LabelSize",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "637977339198484093",
+  "Name": "87d61628c62744a1b8c4b75fa199f76e",
+  "OverridableProperties": {},
+  "TemplateOriginalName": "70dbeafc29cc418788123bc9cdb11acb",
+  "Version": "637930896049202515"
+}

@@ -1,0 +1,78 @@
+"'Dark - Slider' As CanvasComponent":
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =100
+    LinealGradientColour1: |-
+        ="#2c3e50"
+    LinealGradientColour2: |-
+        ="#3498db"
+    Max: =100
+    Min: =0
+    Value: =Slider1.Value
+    Width: =250
+    X: =0
+    Y: =0
+    ZIndex: =7
+
+    HtmlText1_14 As htmlViewer:
+        Color: =RGBA(250, 250, 250, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =93
+        HtmlText: |-
+            ="<div style='margin:30px;width: "& HtmlText1_14.Width - 70 &"px;height: "& HtmlText1_14.Height - 75 &"px;background: #e8eaec;
+            
+            box-shadow: 6px 6px 8px rgba(13, 39, 80, 0.25), -6px -6px 10px white, inset -8px -8px 12px rgba(255, 255, 255, 0.7), inset 5px 5px 8px rgba(13, 39, 80, 0.2);
+                
+                 border-radius:10px'> <div style='width: "& (Slider1.Value/Slider1.Max) * Slider1.Width +10 &"px;height: "& HtmlText1_14.Height - 75 &"px;background: linear-gradient(to right, "& 'Dark - Slider'.LinealGradientColour1 &", "& 'Dark - Slider'.LinealGradientColour2&");
+            
+            box-shadow: 12px 12px 32px rgba(13, 39, 80, 0.25), -10px -10px 15px white;
+                
+                
+                 border-radius:10px'>
+                 
+                
+            
+            
+                 </div>"
+        Width: =Parent.Width
+        ZIndex: =1
+
+    HtmlText1_17 As htmlViewer:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =61
+        HtmlText: |-
+            ="<div style='margin:10px;height:25px;width:25px;background: linear-gradient(135deg, rgba(36,36,44,1) 0%, rgba(52,57,61,1) 100%);
+                
+                box-sizing: border-box;
+                background: #e8eaec;
+               box-shadow: inset 3px 3px 2px rgba(13, 39, 80, 0.2),
+                        inset -3px -3px 2px #ffffff;
+                 border-radius:45px'> 
+            
+                 </div>"
+        Width: =67
+        X: =(Slider1.Value/Slider1.Max) * Slider1.Width + 12
+        Y: =16
+        ZIndex: =2
+
+    Slider1 As slider:
+        BorderColor: =White
+        BorderStyle: =BorderStyle.None
+        DisabledBorderColor: =
+        FocusedBorderThickness: =0
+        HandleActiveFill: =
+        HandleFill: =RGBA(0, 0, 0, 0)
+        HandleSize: =20
+        Height: =25
+        HoverBorderColor: =
+        Max: ='Dark - Slider'.Max
+        Min: ='Dark - Slider'.Min
+        OnChange: =
+        PressedBorderColor: =
+        RailFill: =
+        RailThickness: =0
+        ValueFill: =RGBA(0, 0, 0, 0)
+        Width: =Parent.Width - 70
+        X: =36
+        Y: =30
+        ZIndex: =3
+

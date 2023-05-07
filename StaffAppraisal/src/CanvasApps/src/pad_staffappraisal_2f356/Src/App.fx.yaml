@@ -1,0 +1,26 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(AppID, "8e540db3-0d4f-4746-b9f7-c24f20106055");
+        If(Not(IsBlank(Param("staffId"))),Set(staffId,Param("staffId")));
+        
+        Set(resetInput, false);
+        
+        Set(
+            varButtonSelected,
+            false
+        );
+        ClearCollect(
+            appusers,
+            Filter(
+                ShowColumns(
+                    SOM_App_Users,
+                    "Title",
+                    "Department",
+                    "AppUser"
+                ),
+                User().Email = AppUser.Email
+            )
+        )
+    StartScreen: =If(Not(IsBlank(Param("staffId"))),'Nominate Screen',Home)
+

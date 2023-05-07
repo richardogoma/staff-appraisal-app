@@ -1,0 +1,55 @@
+"'Dark - Text input' As CanvasComponent":
+    ActiveLinealGradient1: |-
+        ="#2c3e50"
+    ActiveLinealGradient2: |-
+        ="#3498db"
+    Fill: =RGBA(0, 0, 0, 0)
+    FontSize: =12
+    Height: =122
+    HintText: ="✎ Start typing here"
+    IsSelected: =false
+    Mode: =TextMode.SingleLine
+    Text: =TextInput1.Text
+    Width: =250
+    X: =0
+    Y: =0
+    ZIndex: =5
+
+    HtmlText1_7 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='margin:30px;width: "& HtmlText1_7.Width - 70 &"px;height: "& HtmlText1_7.Height - 80 &"px; background: #e8eaec;
+            
+             box-shadow: 12px 12px 22px rgba(13, 39, 80, 0.25), -10px -10px 15px white, inset -15px -15px 20px rgba(255, 255, 255, 0.7), inset 8px 8px 30px rgba(13, 39, 80, 0.2);
+                
+                
+                 border-radius:10px'>
+                 
+                 "& If(varIsSelected = true, "
+                 <div style='position:absolute;  transform:translate(10%); width: "& (HtmlText1_7.Width - 70)*0.85 &"px; height:3px; background:linear-gradient(to right, "& 'Dark - Text input'.ActiveLinealGradient1 &", "& 'Dark - Text input'.ActiveLinealGradient2 &") ; box-shadow: "&'Dark - Text input'.ActiveLinealGradient2 &"  0px 2px 9px,
+                inset -3px -3px 7px "& 'Dark - Text input'.ActiveLinealGradient2 &" ;  border-radius: 36px' </div>", "") &"
+            
+                 </div>"
+        Width: =Parent.Width
+        ZIndex: =1
+
+    TextInput1 As text:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        Color: =RGBA(69, 69, 69, 1)
+        Default: =
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Segoe UI'
+        Height: =HtmlText1_7.Height - 100
+        HintText: ='Dark - Text input'.HintText
+        HoverFill: =RGBA(196,196,196,0.3)
+        Mode: ='Dark - Text input'.Mode
+        OnChange: =Set(varIsSelected, false); 
+        OnSelect: =Set(varIsSelected, true); 
+        Size: ='Dark - Text input'.FontSize
+        Width: =HtmlText1_7.Width - 85
+        X: =44
+        Y: =46
+        ZIndex: =2
+

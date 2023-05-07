@@ -1,0 +1,18 @@
+"'Dark - Card inset' As CanvasComponent":
+    BorderRadius: =10
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =3
+
+    HtmlText1_5 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='margin:30px;width: "& HtmlText1_5.Width - 90 &"px;height: "& HtmlText1_5.Height - 90 &"px;background: #e8eaec;
+              box-shadow: 12px 12px 32px rgba(13, 39, 80, 0.25), -10px -10px 15px white, inset -15px -15px 20px rgba(255, 255, 255, 0.7), inset 8px 8px 30px rgba(13, 39, 80, 0.2);
+                 border-radius:"& 'Dark - Card inset'.BorderRadius &"px'></div>"
+        Width: =Parent.Width
+        ZIndex: =3
+

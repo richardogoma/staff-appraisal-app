@@ -1,0 +1,228 @@
+"'Nominate Screen' As screen":
+    Fill: =RGBA(232, 234, 236, 1)
+    OnVisible: |-
+        =If(
+            Not(IsBlank(staffId)), 
+            Set(supervisorProfile,  LookUp(SOM_App_Users, StaffID = staffId))
+        )
+
+    "'nominee-img' As image":
+        BorderColor: =RGBA(232, 234, 236, 1)
+        BorderThickness: =1
+        Height: =160
+        Image: |-
+            =If(IsBlankOrError(First('search-user'.SelectedItems).Mail), 'user-removebg-preview',
+            Office365Users.UserPhotoV2(First('search-user'.SelectedItems).Mail))
+        RadiusBottomLeft: =90
+        RadiusBottomRight: =90
+        RadiusTopLeft: =90
+        RadiusTopRight: =90
+        Width: =180
+        X: =223
+        Y: =149
+        ZIndex: =1
+
+    justification_lbl As label:
+        Align: =Align.Center
+        Font: =Font.'Lato Light'
+        FontWeight: =FontWeight.Semibold
+        Height: =37
+        Size: =15
+        Text: ="Provide Justification"
+        Width: =190
+        X: =33
+        Y: =555
+        ZIndex: =2
+
+    "'Dark - Mobile Navigation Menu_1' As 'Dark - Mobile Navigation Menu'":
+        Height: =216
+        IconLinealGradient1: |-
+            ="#D31027"
+        IconLinealGradient2: |-
+            ="#EA384D"
+        MenuColourHEX: |-
+            ="#"
+        StandardIconColour: =RGBA(9, 33, 98, 1)
+        Width: =640
+        Y: =920
+        ZIndex: =3
+
+    "'Dark - Text input_1' As 'Dark - Text input'":
+        ActiveLinealGradient1: |-
+            ="#D31027"
+        ActiveLinealGradient2: |-
+            ="#EA384D"
+        FontSize: =15
+        Height: =252
+        Mode: =TextMode.MultiLine
+        Width: =640
+        Y: =570
+        ZIndex: =4
+
+    "'Dark - Star rating_3' As 'Dark - Star rating_2'":
+        BoxShadow: =true
+        Height: =160
+        LinealGradient1: |-
+            ="#D31027"
+        LinealGradient2: |-
+            ="#EA384D"
+        Width: =340
+        X: =300
+        Y: =408
+        ZIndex: =5
+
+    rating_lbl As label:
+        Font: =Font.'Lato Light'
+        FontWeight: =FontWeight.Semibold
+        Height: =69
+        Size: =15
+        Text: ="Rate Staff"
+        Width: =198
+        X: =33
+        Y: =472
+        ZIndex: =6
+
+    "'Dark - Card inset_1' As 'Dark - Card inset'":
+        Height: =176
+        Width: =461
+        X: =107
+        Y: =309
+        ZIndex: =7
+
+    "'search-user' As combobox":
+        BorderColor: =RGBA(0, 0, 0, 0)
+        ChevronBackground: =RGBA(0, 0, 0, 0)
+        ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+        ChevronDisabledFill: =RGBA(0, 0, 0, 0)
+        ChevronFill: =RGBA(0, 0, 0, 0)
+        ChevronHoverBackground: =RGBA(0, 0, 0, 0)
+        ChevronHoverFill: =RGBA(0, 0, 0, 0)
+        DisplayFields: =["DisplayName"]
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.Lato
+        Height: =70
+        HoverFill: =RGBA(0, 0, 0, 0)
+        InputTextPlaceholder: ="✎ Start typing staff name"
+        Items: |-
+            =Office365Users.SearchUserV2({searchTerm:'search-user'.SearchText}).value
+        Reset: =resetInput
+        SearchFields: =["Mail"]
+        SearchItems: |-
+            =Search(Office365Users.SearchUserV2({searchTerm:'search-user'.SearchText}).value,'search-user'.SearchText,"Mail")
+        SelectionColor: =RGBA(0, 0, 0, 1)
+        SelectionFill: =RGBA(0, 0, 0, 0)
+        SelectMultiple: =false
+        Size: =15
+        Width: =365
+        X: =144
+        Y: =355
+        ZIndex: =8
+
+    "'welcome-lbl' As label":
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Lato Light'
+        FontWeight: =FontWeight.Semibold
+        Height: =106
+        Overflow: =Overflow.Scroll
+        Size: =15
+        Text: |-
+            ="Welcome "&User().FullName&","&Char(10)&"Kindly nominate staff of the month in "&Char(10)
+                &If(Not(IsBlank(Param("staffId"))),supervisorProfile.Department,First(appusers).Department)
+                &"department"
+        Width: =352
+        X: =15
+        Y: =20
+        ZIndex: =9
+
+    "'genesis-logo' As image":
+        BorderColor: =RGBA(232, 234, 236, 1)
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.View
+        Height: =70
+        Image: ='genesis-removebg-logo'
+        RadiusBottomLeft: =90
+        RadiusBottomRight: =90
+        RadiusTopLeft: =90
+        RadiusTopRight: =90
+        Width: =80
+        X: =544
+        Y: =20
+        ZIndex: =10
+
+    "'Dark - Button_1' As 'Dark - Button'":
+        Height: =185
+        IconName: ="upload"
+        LinealGradient: =true
+        LinealGradientColor1: |-
+            ="#D31027"
+        LinealGradientColor2: |-
+            ="#EA384D"
+        OnSelect: |
+            =If(
+                IsBlank( First('search-user'.SelectedItems).Mail ) , 
+                Notify(
+                    "No staff member selected", 
+                    NotificationType.Warning
+                ), 
+                UpdateContext(
+                    {varNominee: 
+                        Patch(
+                            SOM_App_Nominees, 
+                            Defaults(SOM_App_Nominees),
+                            {
+                                NomineeFullName: First('search-user'.SelectedItems).DisplayName,
+                                NomineeEmail: First('search-user'.SelectedItems).Mail,
+                                Rating: 'Dark - Star rating_3'.Value,
+                                Justification:  'Dark - Text input_1'.Text,
+                                SupervisorEmail: First(appusers).AppUser.Email,
+                                Department: First(appusers).Department
+                            }
+                        )
+                    }
+                );
+                Patch(
+                    SOM_App_Nominees,
+                    LookUp(SOM_App_Nominees, ID = varNominee.ID),
+                    {
+                        IsRemind:   0
+                    }
+                );
+                Office365Outlook.SendEmailV2(
+                    First('search-user'.SelectedItems).Mail,
+                    "Staff of the month nomination",
+                    "Hello, "&First('search-user'.SelectedItems).DisplayName&Char(10)
+                            &"You have been nominated by your supervisor as the staff of the month. "
+                            &"This email is confidential."&Char(10)&"Warmest Regards",
+                    {
+                        Cc:First(appusers).AppUser.Email
+                    }
+                );
+                Notify(
+                    "Your nomination has been saved succesfully", 
+                    NotificationType.Success
+                )
+            );
+            UpdateContext(
+                {
+                    varButtonSelected:!varButtonSelected
+                }
+            );
+            Set(resetInput, true);
+        Width: =353
+        X: =143
+        Y: =776
+        ZIndex: =11
+
+    lbl_nominate As label:
+        Align: =Align.Center
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Lato Light'
+        FontWeight: =FontWeight.Semibold
+        Height: =69
+        Size: =15
+        Text: ="Nominate Staff"
+        Width: =198
+        X: =227
+        Y: =856
+        ZIndex: =13
+

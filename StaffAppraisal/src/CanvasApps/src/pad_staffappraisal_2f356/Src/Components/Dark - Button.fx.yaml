@@ -1,0 +1,114 @@
+"'Dark - Button' As CanvasComponent":
+    BorderRadius: =25
+    ButtonSelected: =varButtonSelected
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    IconColorActive: |-
+        ="#1E56C8"
+    IconColour: |-
+        ="#454545"
+    IconName: ="calendar"
+    LinealGradient: =false
+    LinealGradientColor1: |-
+        ="#2c3e50"
+    LinealGradientColor2: |-
+        ="#3498db"
+    OnSelect: =
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =9
+
+    HtmlText1_16 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='margin:30px;width: "& HtmlText1_16.Width - 70 &"px;height: "& HtmlText1_16.Height - 80 &"px; background: #e8eaec;
+            
+            box-shadow: 
+               "& If(varButtonSelected = true," inset 5px 5px 4px #bec0c2,
+                        inset -5px -5px 4px #ffffff",  " 12px 12px 18px rgba(13, 39, 80, 0.25), -10px -10px 15px white" ) &"  ;
+            
+            
+            
+                
+                 border-radius:"& 'Dark - Button'.BorderRadius &"px'></div>"
+        Width: =Parent.Width
+        ZIndex: =1
+
+    Image2_2 As image:
+        Height: =HtmlText1_16.Height/2 - 50
+        Image: |-
+            ="data:image/svg+xml;utf8, "&EncodeUrl(" <svg xmlns='http://www.w3.org/2000/svg' width='16' height='19' fill='"&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"' viewBox='0 0 16 16'>
+            
+            "&If('Dark - Button'.LinealGradient= true ,"<defs>  
+             <linearGradient id='gradient' x1='0%' y1='0%' x2='0%' y2='100%'>  
+             <stop offset='0%' style='stop-color: "&'Dark - Button'.LinealGradientColor1&" ;'></stop>  
+             <stop offset='100%' style='stop-color: "&'Dark - Button'.LinealGradientColor2&" ;'></stop>  
+             </linearGradient>  
+            </defs>","")&"
+             
+            <filter id='glow'> 
+              <feGaussianBlur stdDeviation='0.7' result='coloredBlur'/> 
+              <feMerge> 
+              <feMergeNode in='coloredBlur'/> 
+              <feMergeNode in='SourceGraphic'/> 
+              </feMerge> 
+            </filter> 
+            
+            "&Switch('Dark - Button'.IconName,"calendar","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"'
+            
+            d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/>
+            </svg>","bag","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z'/>
+            </svg>","basket","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.468 15.426.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z'/>
+            </svg>","clipboard","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z'/>
+              <path d='M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z'/>
+            </svg>","upload","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' fill-rule='evenodd' d='M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z'/>
+              <path d='M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z'/>
+            </svg>","download","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z'/>
+              <path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z'/>
+            </svg>","email","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z'/>
+            </svg>","home","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' fill-rule='evenodd' d='m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z'/>
+              <path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' fill-rule='evenodd' d='M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z'/>
+            </svg>","user","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'/>
+            </svg>","print","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z'/>
+              <path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z'/>
+            </svg>","phone","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' fill-rule='evenodd' d='M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z'/>
+            </svg>","trash","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z'/>
+            </svg>","cancel","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/>
+            </svg>","edit","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z'/>
+            </svg>","new","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' fill-rule='evenodd' d='M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z'/>
+            </svg>","back","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' fill-rule='evenodd' d='M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z'/>
+            </svg>","next","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z'/>
+            </svg>","refresh","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' fill-rule='evenodd' d='M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z'/>
+              <path d='M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z'/>
+            </svg>","filter","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z'/>
+            </svg>","settings"," <path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z'/>
+            </svg>","chart","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z'/>
+            </svg>","notification","<path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z'/>
+            </svg>","bookmark"," <path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z'/>
+            </svg>","alarm","
+              <path fill='"&If('Dark - Button'.LinealGradient= true ,""&If(varButtonSelected= true ,"url(#gradient)",'Dark - Button'.IconColour)&"",""&If(varButtonSelected= true ,'Dark - Button'.IconColorActive,'Dark - Button'.IconColour)&"")&"' d='M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5zm2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.035 8.035 0 0 0-3.527-3.527z'/>
+            </svg>")&"
+            
+            ")
+        Width: =HtmlText1_16.Width - 70 
+        X: =('Dark - Button'.Width - Self.Width)/2
+        Y: =('Dark - Button'.Height - Self.Height)/2 - 5
+        ZIndex: =2
+
+    Button3_1 As button:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =HtmlText1_16.Height - 80
+        HoverFill: =RGBA(196,196,196,0.2)
+        OnSelect: =Set(varButtonSelected, !varButtonSelected); 'Dark - Button'.OnSelect(); 
+        PressedFill: =RGBA(196,196,196,0.4)
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Text: =""
+        Width: =HtmlText1_16.Width - 70
+        X: =36
+        Y: =36
+        ZIndex: =3
+

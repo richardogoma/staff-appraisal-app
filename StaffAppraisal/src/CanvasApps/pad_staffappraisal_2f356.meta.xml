@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>pad_staffappraisal_2f356</Name>
+  <AppVersion>2022-09-02T16:48:33Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.22083.16.0</CreatedByClientVersion>
+  <MinClientVersion>3.22083.16.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"640","primaryDeviceHeight":"1136","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Phone","publisherVersion":"3.22083.16","minimumRequiredApiVersion":"2.2.0","hasComponent":"true","hasUnlockedComponent":"true","isUnifiedRootApp":"false","sienaVersion":"20220902T105735Z-3.22083.16.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>Staff Appraisal</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"7b92e284-f25b-4696-a6e0-29e08d30d26d":{"id":"/providers/microsoft.powerapps/apis/shared_office365users","displayName":"Office 365 Users","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1587/1.0.1587.2924/office365users/icon.png","dataSources":["Office365Users"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["UserPhoto_V2","SearchUserV2"]},"43a1cb5c-f4d5-4ca4-a9a4-1a1f8374847c":{"id":"/providers/microsoft.powerapps/apis/shared_sharepointonline","displayName":"SharePoint","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1591/1.0.1591.2961/sharepointonline/icon.png","dataSources":["SOM_App_Users","SOM_App_Nominees"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{"https://7ykj10.sharepoint.com/sites/ProcessAutomationDevelopment/":{"dataSources":{"SOM_App_Users":{"tableName":"62ba9dba-d1ff-42aa-9e32-46133b961508"},"SOM_App_Nominees":{"tableName":"9ee7af51-94ea-4108-a0a4-f1ff4d985966"}}}},"apiTier":"Standard","actions":["providers/PowerPlatform.Governance/Operations/Read","providers/PowerPlatform.Governance/Operations/Write"]},"f4f63a50-180a-4348-93db-e469ffe4ee9a":{"id":"/providers/microsoft.powerapps/apis/shared_office365","displayName":"Office 365 Outlook","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1595/1.0.1595.2986/office365/icon.png","dataSources":["Office365Outlook"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["SendEmailV2"]}}</ConnectionReferences>
+  <DatabaseReferences>{}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/pad_staffappraisal_2f356_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/pad_staffappraisal_2f356_DocumentUri.msapp</DocumentUri>
+</CanvasApp>
