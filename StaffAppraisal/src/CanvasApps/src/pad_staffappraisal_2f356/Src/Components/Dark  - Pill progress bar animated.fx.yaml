@@ -1,0 +1,78 @@
+"'Dark  - Pill progress bar animated' As CanvasComponent":
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =120
+    LabelSize: =15
+    LinealGradient1: |-
+        ="#2c3e50" 
+    LinealGradient2: |-
+        ="#3498db"
+    MaxValue: =100
+    Value: =100
+    Width: =350
+    X: =0
+    Y: =0
+    ZIndex: =12
+
+    HtmlText1_20 As htmlViewer:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =120
+        HtmlText: |-
+            ="<div style='margin:30px;
+            width: 280px;
+            height: 25px;
+            background: #e8eaec;
+            
+            box-shadow: 6px 6px 8px rgba(13, 39, 80, 0.25), -6px -6px 10px white, inset -8px -8px 12px rgba(255, 255, 255, 0.7), inset 5px 5px 8px rgba(13, 39, 80, 0.2);
+            border-radius:45px;
+               '>
+                 </div>"
+        Width: =350
+        ZIndex: =1
+
+    Image1_1 As image:
+        Height: =67
+        Image: |-
+            ="data:image/svg+xml," & EncodeUrl(
+                "<svg xmlns='http://www.w3.org/2000/svg' width='10px' height='10px' viewBox='0 0 258 128' filter='drop-shadow(3px 5px 4px rgb(0 0 0 /  0.5, 0.0) ))'>
+            
+            <defs>
+            <linearGradient id='linear' x1='0%' y1='0%' x2='0%' y2='100%' spreadMethod='pad'>
+            <stop offset='0%' stop-color='"& 'Dark  - Pill progress bar animated'.LinealGradient1&"'/>
+            <stop offset='100%' stop-color='"& 'Dark  - Pill progress bar animated'.LinealGradient2&"'/>
+            </linearGradient>
+            </defs>
+            
+            
+                
+             <rect transform='translate(0, 46)' x='1' y='20' width='"& ('Dark  - Pill progress bar animated'.Value/'Dark  - Pill progress bar animated'.MaxValue)*240 &"' height='18'  rx='9'
+                
+                 fill='url(#linear)'   stroke-dasharray='"& ('Dark  - Pill progress bar animated'.Value/'Dark  - Pill progress bar animated'.MaxValue)*240 &", 500' 
+            >
+                
+                <animate attributeName='width' values='0;"& ('Dark  - Pill progress bar animated'.Value/'Dark  - Pill progress bar animated'.MaxValue)*240 &"' 
+                 dur='3s' repeatCount='1' />
+            
+            
+                 </rect>
+            
+            
+            
+            </svg>
+            
+                ")
+        ImagePosition: =ImagePosition.Fill
+        Width: =295
+        X: =36
+        Y: =1
+        ZIndex: =3
+
+    Label1_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(105, 105, 105, 1)
+        Height: =30
+        Size: ='Dark  - Pill progress bar animated'.LabelSize
+        Text: =('Dark  - Pill progress bar animated'.Value/'Dark  - Pill progress bar animated'.MaxValue)*100 & "%"
+        Width: =350
+        Y: =60
+        ZIndex: =4
+

@@ -1,0 +1,77 @@
+"'Dark- Scalable checkbox' As CanvasComponent":
+    Checked: =If(IsBlank(varChecked), false, varChecked)
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =100
+    IconColorActive: |-
+        ="#1e56c8"
+    IconColour: |-
+        ="#656565"
+    LinealGradient: =true
+    LinealGradientColor1: |-
+        ="#2c3e50"
+    LinealGradientColor2: |-
+        ="#3498db"
+    OnSelect: =true
+    Width: =100
+    X: =0
+    Y: =0
+    ZIndex: =11
+
+    HtmlText1_19 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='margin:20px;
+            width: "& HtmlText1_19.Width - 60 &"px;
+            height: "& HtmlText1_19.Height - 60&"px ;
+            background: #e8eaec;
+            box-shadow: "& If('Dark- Scalable checkbox'.Checked = true, "inset 5px 5px 4px #bec0c2,
+                        inset -5px -5px 4px #ffffff", "12px 12px 18px rgba(13, 39, 80, 0.25), -10px -10px 15px white") &";
+            border-radius:10px'></div>"
+        Width: =Parent.Width
+        ZIndex: =1
+
+    Image1_5 As image:
+        Height: =HtmlText1_19.Width- 60
+        Image: |-
+            ="data:image/svg+xml;utf8, "&EncodeUrl(" <svg xmlns='http://www.w3.org/2000/svg' width='16' height='19' fill='"&If('Dark- Scalable checkbox'.Checked= true ,'Dark- Scalable checkbox'.IconColorActive,'Dark- Scalable checkbox'.IconColour)&"' viewBox='0 0 16 16'>
+            
+            "&If('Dark- Scalable checkbox'.LinealGradient= true ,"<defs>  
+             <linearGradient id='gradient' x1='0%' y1='0%' x2='0%' y2='100%'>  
+             <stop offset='15%' style='stop-color: "&'Dark- Scalable checkbox'.LinealGradientColor1&" ;'></stop>  
+             <stop offset='100%' style='stop-color: "&'Dark- Scalable checkbox'.LinealGradientColor2&" ;'></stop>  
+             </linearGradient>  
+            </defs>","")&"
+             
+            <filter id='glow'> 
+              <feGaussianBlur stdDeviation='0.7' result='coloredBlur'/> 
+              <feMerge> 
+              <feMergeNode in='coloredBlur'/> 
+              <feMergeNode in='SourceGraphic'/> 
+              </feMerge> 
+            </filter> 
+            
+            
+            <path fill='"&If('Dark- Scalable checkbox'.LinealGradient= true ,""&If('Dark- Scalable checkbox'.Checked= true ,"url(#gradient)",'Dark- Scalable checkbox'.IconColour)&"",""&If('Dark- Scalable checkbox'.Checked= true ,'Dark- Scalable checkbox'.IconColorActive,'Dark- Scalable checkbox'.IconColour)&"")&"'
+            
+            d='M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z'/>
+            </svg>")&"
+            
+            "
+        Width: =HtmlText1_19.Width- 60
+        X: =25
+        Y: =25
+        ZIndex: =2
+
+    Button1_5 As button:
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =HtmlText1_19.Height - 60
+        HoverFill: =RGBA(196,196,196,0.2)
+        OnSelect: =Set(varChecked, If('Dark- Scalable checkbox'.Checked = false, true, false))
+        Text: =""
+        Width: =HtmlText1_19.Width - 60
+        X: =25
+        Y: =25
+        ZIndex: =3
+

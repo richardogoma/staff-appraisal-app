@@ -7,7 +7,9 @@ The Staff Appraisal App is a canvas mobile application built using [Microsoft Po
 ## 🔗 Watch the promo video
 <!-- [![Watch the promo video](https://img.youtube.com/vi/F3PlU9srp_Y/default.jpg)](https://youtu.be/F3PlU9srp_Y) -->
 
-[![Watch the promo video](https://img.youtube.com/vi/F3PlU9srp_Y/0.jpg)](https://www.youtube.com/watch?v=F3PlU9srp_Y)
+<!-- [![Watch the promo video](https://img.youtube.com/vi/F3PlU9srp_Y/0.jpg)](https://www.youtube.com/watch?v=F3PlU9srp_Y) -->
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F3PlU9srp_Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 ## Objectives
@@ -40,7 +42,9 @@ The report is designed to be interactive, allowing users to filter the data by d
 
 <!-- ![Voice of the Managers Report](https://user-images.githubusercontent.com/108296666/236662185-f86b292e-19c0-4c2f-848d-9cdeed977c27.jpg) -->
 
-<img src="https://user-images.githubusercontent.com/108296666/236662185-f86b292e-19c0-4c2f-848d-9cdeed977c27.jpg" alt="Voice of the Managers Report" style="display: block; margin-left: auto; margin-right: auto;" width="40%">
+<!-- <img src="https://user-images.githubusercontent.com/108296666/236662185-f86b292e-19c0-4c2f-848d-9cdeed977c27.jpg" alt="Voice of the Managers Report" style="display: block; margin-left: auto; margin-right: auto;" width="40%"> -->
+
+<iframe title="Report Section" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiOWJhNjAzYzEtNjQ4Ny00YTU3LWJlNGUtY2MzOWIxZWFkNTAzIiwidCI6Ijg2ZTI2NTZlLTIxMTUtNDE1Yy1iNzBmLTkyY2NmMTgzMzNlMyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
 
 ## Results
 

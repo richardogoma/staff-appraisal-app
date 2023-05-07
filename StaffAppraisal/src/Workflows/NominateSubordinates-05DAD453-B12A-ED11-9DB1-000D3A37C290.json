@@ -1,0 +1,200 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "pad_sharedsharepointonline_6660b"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      },
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "pad_sharedoffice365_e8a94"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "W. Central Africa Standard Time",
+            "startTime": "2022-09-02T09:00:00Z",
+            "schedule": {
+              "hours": [
+                "8"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "a3b87501-dab0-488c-a57f-6488046169f5"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "baseaddress": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "75a1d1f7-dcbd-44c5-9d96-62c54e557d12"
+          },
+          "type": "Compose",
+          "inputs": "https://apps.powerapps.com/play/8e540db3-0d4f-4746-b9f7-c24f20106055?staffId="
+        },
+        "Scope": {
+          "actions": {
+            "Get_supervisors": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "04e3ddb2-e1a6-478e-a58c-eb0e1f342604"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_sharepointonline",
+                  "operationId": "GetItems",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                },
+                "parameters": {
+                  "dataset": "https://7ykj10.sharepoint.com/sites/ProcessAutomationDevelopment",
+                  "table": "62ba9dba-d1ff-42aa-9e32-46133b961508",
+                  "$filter": "UserGroup eq 'Supervisor'"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Apply_to_each": {
+              "foreach": "@outputs('Get_supervisors')?['body/value']",
+              "actions": {
+                "Get_nominees": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "70a6bae0-4576-43f1-b72e-e34fa003a09a"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_sharepointonline",
+                      "operationId": "GetItems",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                    },
+                    "parameters": {
+                      "dataset": "https://7ykj10.sharepoint.com/sites/ProcessAutomationDevelopment",
+                      "table": "9ee7af51-94ea-4108-a0a4-f1ff4d985966",
+                      "$filter": "IsRemind eq 0 and '@{items('Apply_to_each')?['AppUser/Email']}' eq SupervisorEmail"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "countsupervisorentry": {
+                  "runAfter": {
+                    "Get_nominees": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "56f60a68-8f40-4f2d-9213-e43da3f89c26"
+                  },
+                  "type": "Compose",
+                  "inputs": "@length(outputs('Get_nominees')?['body/value'])"
+                },
+                "Condition_-_for_email": {
+                  "actions": {
+                    "Send_an_email_(V2)": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "b41306ff-35e9-4450-9b84-b79fd91ae115"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_office365",
+                          "operationId": "SendEmailV2",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                        },
+                        "parameters": {
+                          "emailMessage/To": "@items('Apply_to_each')?['AppUser/Email']",
+                          "emailMessage/Subject": "REMINDER! NOMINATE STAFF OF THE MONTH",
+                          "emailMessage/Body": "<!DOCTYPE Html>\n<head>\n<style>        \n        body,table,thead,tbody,tr,td,img {\n            padding: 0;\n            margin: 0;\n            border: none;\n            border-spacing: 0px;\n            border-collapse: collapse;\n            vertical-align: top;\n        }        \n        .wrapper {\n            padding-left: 10px;\n            padding-right: 10px;\n        }\n\n        h1,h2,h3,h4,h5,h6,p {\n            margin: 0;\n            padding: 0;\n            padding-bottom: 20px;\n            line-height: 1.6;\n            font-family: 'Helvetica', 'Arial', sans-serif;\n        }\n\n        p,a,li {\n            font-family: 'Helvetica', 'Arial', sans-serif;\n        }\n\n        img {\n            width: 100%;\n            display: block;\n        }\n\n        @media only screen and (max-width: 620px) {\n\n            .wrapper .section {\n                width: 100%;\n            }\n\n            .wrapper .column {\n                width: 100%;\n                display: block;\n            }\n        }\n\n        .container{\n            border-color: #000;\n            border-width: 10px;\n            padding: 10px;\n            background-color: #f1f1f1;\n            color: 000;              \n             border-bottom-left-radius:  10px;\n            border-bottom-right-radius:  10px;                  \n        }\n        \n        .logobg{\n            padding: 10px;\n            background-color: #EA384D;    \n            text-align: center;     \n                color: #ffffff;\n                font-weight: bold;\n                font-size:20px;\n                border-top-left-radius:  10px;\n            border-top-right-radius:  10px;\n        }\n    </style>\n</head>\n<title>REMINDER! NOMINATE STAFF OF THE MONTH</title>\n<body>\n\n <table width=\"100%\">\n        <tbody>\n            <tr>\n                <td class=\"wrapper\" width=\"600\" align=\"center\">\n                    <!-- Header image -->\n                    <table class=\"section header\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\n                        <tr>\n                            <td class=\"column\">\n                                <table class=\"container\">\n                                    <tbody>\n                                        <tr>\n                                            <td align=\"left\">\n                                            <div class=\"logobg\">\n                                                NOMINATE STAFF OF THE MONTH\n                                               </div>\n                                                <div class=\"container\">\n                                                <h4>Dear @{items('Apply_to_each')?['AppUser/DisplayName']},</h2>\n                                                <p style=\"text-align:justify; font-family:verderna;font-size:16px;\">Kindly use the link below to nominate the staff of the month in @{items('Apply_to_each')?['Department']} department. <br/>\n                                                    Link to portal: <a href=\"@{outputs('supervisordeeplink')}\">Staff Nomination App</a>\n                                                    <br> Warm Regards <br/>\n                                                </p>\n                                                </div>\n                                            </td>\n                                            \n                                        </tr>\n                                        \n                                    </tbody>                                    \n                                </table>\n                            </td>\n                        </tr>\n                    </table>                    \n                </td>\n            </tr>\n        </tbody>\n    </table>\n</body>\n<html>",
+                          "emailMessage/Importance": "Normal"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "supervisordeeplink": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "equals": [
+                      "@outputs('countsupervisorentry')",
+                      0
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "67a0ad0a-3dc8-4ec3-b7a4-0241fd408801"
+                  },
+                  "type": "If"
+                },
+                "supervisordeeplink": {
+                  "runAfter": {
+                    "countsupervisorentry": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "c968323f-e945-412d-af70-ac5bd6459f39"
+                  },
+                  "type": "Compose",
+                  "inputs": "@{outputs('baseaddress')}@{items('Apply_to_each')?['Title']}"
+                }
+              },
+              "runAfter": {
+                "Get_supervisors": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e65c3917-5282-4f79-8cda-f3c6728374ba"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "baseaddress": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d7730c1b-d4ad-4301-8662-2b3cc55939f5"
+          },
+          "type": "Scope"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

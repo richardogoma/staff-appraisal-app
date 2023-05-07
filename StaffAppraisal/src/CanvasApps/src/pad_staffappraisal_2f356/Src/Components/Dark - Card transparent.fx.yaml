@@ -1,0 +1,20 @@
+"'Dark - Card transparent' As CanvasComponent":
+    BorderRadius: =10
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    HtmlText1_2 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='margin:30px;width: "& HtmlText1_2.Width -70 &"px;height: "& HtmlText1_2.Height - 90 &"px;  background: #e8eaec;
+             box-shadow: 12px 12px 32px rgba(13, 39, 80, 0.25), -10px -10px 15px white;
+                
+                
+                 border-radius:"& 'Dark - Card transparent'.BorderRadius &"px'></div>"
+        Width: =Parent.Width
+        ZIndex: =3
+

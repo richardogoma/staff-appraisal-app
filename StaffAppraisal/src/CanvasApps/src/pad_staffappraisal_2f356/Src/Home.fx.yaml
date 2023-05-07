@@ -1,0 +1,71 @@
+Home As screen:
+    Fill: =RGBA(232, 234, 236, 1)
+
+    "'genesis-logo_1' As image":
+        BorderColor: =RGBA(232, 234, 236, 1)
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.View
+        Height: =452
+        Image: ='genesis-removebg-logo'
+        RadiusBottomLeft: =90
+        RadiusBottomRight: =90
+        RadiusTopLeft: =90
+        RadiusTopRight: =90
+        Width: =424
+        X: =108
+        Y: =343
+        ZIndex: =1
+
+    "'welcome-lbl_1' As label":
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Lato Light'
+        FontWeight: =FontWeight.Semibold
+        Height: =121
+        Overflow: =Overflow.Scroll
+        Size: =25
+        Text: ="Welcome, "&Char(10)&User().FullName
+        Width: =417
+        X: =30
+        Y: =191
+        ZIndex: =2
+
+    "'user-img' As image":
+        BorderColor: =RGBA(232, 234, 236, 1)
+        BorderThickness: =1
+        Height: =106
+        Image: =Office365Users.UserPhotoV2(User().Email)
+        RadiusBottomLeft: =90
+        RadiusBottomRight: =90
+        RadiusTopLeft: =90
+        RadiusTopRight: =90
+        Width: =124
+        X: =489
+        Y: =28
+        ZIndex: =3
+
+    "'Dark - Mobile Navigation Menu_2' As 'Dark - Mobile Navigation Menu'":
+        Height: =216
+        IconLinealGradient1: |-
+            ="#D31027"
+        IconLinealGradient2: |-
+            ="#EA384D"
+        MenuColourHEX: |-
+            ="#"
+        StandardIconColour: =RGBA(9, 33, 98, 1)
+        Width: =640
+        Y: =920
+        ZIndex: =4
+
+    "'app-title' As label":
+        DisplayMode: =DisplayMode.View
+        Font: =Font.Lato
+        FontWeight: =FontWeight.Semibold
+        Height: =106
+        Overflow: =Overflow.Scroll
+        Size: =25
+        Text: ="Staff of the Month Nomination App"
+        Width: =442
+        X: =30
+        Y: =28
+        ZIndex: =5
+

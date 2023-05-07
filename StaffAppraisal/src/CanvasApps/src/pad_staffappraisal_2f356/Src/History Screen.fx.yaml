@@ -1,0 +1,162 @@
+"'History Screen' As screen":
+    Fill: =RGBA(232, 234, 236, 1)
+
+    "'nominees-lbl' As label":
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Lato Light'
+        FontWeight: =FontWeight.Semibold
+        Height: =58
+        Overflow: =Overflow.Scroll
+        Size: =25
+        Text: ="Recent Nominations"
+        Width: =417
+        X: =16
+        Y: =199
+        ZIndex: =1
+
+    "'genesis-logo_2' As image":
+        BorderColor: =RGBA(232, 234, 236, 1)
+        BorderThickness: =1
+        DisplayMode: =DisplayMode.View
+        Height: =70
+        Image: ='genesis-removebg-logo'
+        RadiusBottomLeft: =90
+        RadiusBottomRight: =90
+        RadiusTopLeft: =90
+        RadiusTopRight: =90
+        Width: =80
+        X: =544
+        Y: =20
+        ZIndex: =2
+
+    "'user-img_1' As image":
+        BorderColor: =RGBA(232, 234, 236, 1)
+        BorderThickness: =1
+        Height: =117
+        Image: =Office365Users.UserPhotoV2(User().Email)
+        RadiusBottomLeft: =90
+        RadiusBottomRight: =90
+        RadiusTopLeft: =90
+        RadiusTopRight: =90
+        Width: =145
+        X: =16
+        Y: =44
+        ZIndex: =3
+
+    "'Dark - Mobile Navigation Menu_3' As 'Dark - Mobile Navigation Menu'":
+        Height: =216
+        IconLinealGradient1: |-
+            ="#D31027"
+        IconLinealGradient2: |-
+            ="#EA384D"
+        MenuColourHEX: |-
+            ="#"
+        MenuItems: |-
+            =Table(
+                {
+                    //this is the name of the screen
+            MenuItem: "Home",
+                    // this is the screen you will navigate to when you select this item
+                    MenuScreenNavigate: Home,
+                    // this is the colour of the background circle 
+                    BackgroundHex: "#dc582a",
+                    // optional value
+                    HTMLFill: "rgb(249, 81, 19, 0.2)",
+                    //if you are not comfortable with SVG's, you can use standard icons instead!  - just make sure you change the icon property of MenuIcon to ThisItem.StandardIcon
+                    StandardIcon: Icon.Home
+                },
+                {
+                    MenuItem: "Add new",
+                    MenuScreenNavigate: 'Nominate Screen',
+                    BackgroundHex: "#038761",
+                    HTMLFill: "rgb(85, 226, 131, 0.1)",
+                    StandardIcon: Icon.Add
+                },
+                {
+                    MenuItem: "Profile",
+                    MenuScreenNavigate: App.ActiveScreen,
+                    BackgroundHex: "#007FAA",
+                    HTMLFill: "rgb(17, 130, 253, 0.2)",
+                    StandardIcon: Icon.AddUser
+                },
+                {
+                    MenuItem: "Settings",
+                    MenuScreenNavigate: App.ActiveScreen,
+                    BackgroundHex: "#d3273e",
+                    HTMLFill: "rgb(245, 111, 174, 0.2)",
+                    StandardIcon: Icon.Settings
+                }
+            )
+        StandardIconColour: =RGBA(9, 33, 98, 1)
+        Width: =640
+        Y: =920
+        ZIndex: =4
+
+    "'Dark - Card transparent_1' As 'Dark - Card transparent'":
+        Height: =663
+        Y: =257
+        ZIndex: =5
+
+    "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(0, 0, 0, 0)
+        DisplayMode: =DisplayMode.View
+        Height: =562
+        Items: |-
+            =If(
+                Not(IsBlank(Param("staffId"))), 
+                Sort(Filter(SOM_App_Nominees, supervisorProfile.AppUser.Email = SupervisorEmail), ID, Descending), 
+                Sort(Filter(SOM_App_Nominees, User().Email = SupervisorEmail), ID, Descending)
+            )
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =141
+        Width: =560
+        X: =40
+        Y: =297
+        ZIndex: =6
+
+        Image5 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Height: =128
+            Image: =Office365Users.UserPhotoV2(ThisItem.NomineeEmail)
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =90
+            RadiusBottomRight: =90
+            RadiusTopLeft: =90
+            RadiusTopRight: =90
+            Width: =128
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        Title1 As label:
+            Font: =Font.Lato
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.NomineeFullName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - Image5.Width - 104
+            X: =Image5.X + Image5.Width + 24
+            Y: =44
+            ZIndex: =2
+
+        Subtitle1 As label:
+            Font: =Font.'Lato Light'
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Justification
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title1.Width
+            X: =Title1.X
+            Y: =Title1.Y + Title1.Height + 4
+            ZIndex: =3
+
