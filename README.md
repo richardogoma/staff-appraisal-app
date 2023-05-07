@@ -5,7 +5,10 @@
 The Staff Appraisal App is a canvas mobile application built using [Microsoft PowerApps](https://powerapps.microsoft.com/en-gb/). The app enables supervisors and managers to nominate an employee in their department or unit for the staff of the month award. The app collects data on the employee, the manager's rating, the manager's justification for nominating the employee, and the employee/manager's department. The data is stored on a SharePoint list for further analysis. The app also sends automated emails to managers reminding them to nominate an employee if they haven't done so by the end of the month. The project also includes a Power BI report called **Voice of the Manager: A report from the staff nomination exercise conducted using the Staff Appraisal App** that uses natural language processing (NLP) techniques on the data collected to provide insights.
 
 ## 🔗 Watch the promo video
-[![Watch the promo video](https://img.youtube.com/vi/F3PlU9srp_Y/default.jpg)](https://youtu.be/F3PlU9srp_Y)
+<!-- [![Watch the promo video](https://img.youtube.com/vi/F3PlU9srp_Y/default.jpg)](https://youtu.be/F3PlU9srp_Y) -->
+
+[![Watch the promo video](https://img.youtube.com/vi/F3PlU9srp_Y/0.jpg)](https://www.youtube.com/watch?v=F3PlU9srp_Y)
+
 
 ## Objectives
 
@@ -34,6 +37,10 @@ The data collected by the app is stored on a SharePoint list, which is used as a
 - Is there any relationship between staff ratings and the justification for their nominations?
 
 The report is designed to be interactive, allowing users to filter the data by department, rating, and sentiment.
+
+<!-- ![Voice of the Managers Report](https://user-images.githubusercontent.com/108296666/236662185-f86b292e-19c0-4c2f-848d-9cdeed977c27.jpg) -->
+
+<img src="https://user-images.githubusercontent.com/108296666/236662185-f86b292e-19c0-4c2f-848d-9cdeed977c27.jpg" alt="Voice of the Managers Report" style="display: block; margin-left: auto; margin-right: auto;" width="40%">
 
 ## Results
 
